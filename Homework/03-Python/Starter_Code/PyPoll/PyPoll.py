@@ -38,3 +38,19 @@ for candidate in candidates:
 print(f'-------------------------')
 print(f'Winner: Diana DeGette')
 print(f'-------------------------')
+
+#Publish results
+output_file_path = "DV_KU_7_2023/Homework/03-Python/Starter_Code/PyPoll/results.txt"
+
+with open(output_file_path,"w") as outfile:
+    outfile.writelines('Election Results\n')
+    outfile.writelines('-------------------------\n')
+    outfile.writelines(f'Total Votes: {total_votes}\n')
+    outfile.writelines(f'-------------------------\n')
+    for candidate in candidates:
+        vote_count =candidate_votes[candidates.index(candidate)]
+        percent_of_votes = round((vote_count/total_votes)*100,2)
+        outfile.writelines(f'{candidate}: {percent_of_votes}% ({vote_count})\n')
+    outfile.writelines(f'-------------------------\n')
+    outfile.writelines(f'Winner: Diana DeGette\n')
+    outfile.writelines(f'-------------------------\n')
