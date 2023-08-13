@@ -5,7 +5,7 @@ total_votes =0
 candidates = []
 candidate_votes =[]
 candidates_dict = []
-with open(csv_path,encoding="UTF-8") as vote_file:
+with open(csv_path) as vote_file:
     #create a csv reader
     csv_reader = csv.reader(vote_file)
     #get the header

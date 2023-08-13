@@ -1,7 +1,7 @@
 import os
 import csv
 
-cereal_csv = os.path.join("..", "Resources", "cereal.csv")
+cereal_csv = os.path.join("Users\actor\projects\DV_KU_7_2023\In Class\03-Python\3\Activities\01-Stu_CerealCleaner\Resources\cereal.csv")
 
 # Open and read csv
 with open(cereal_csv) as csv_file:
