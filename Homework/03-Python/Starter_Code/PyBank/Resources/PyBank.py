@@ -1,6 +1,6 @@
 #import resource data
 import csv
-csv_path = 'DV_KU_7_2023/Homework/03-Python/Starter_Code/PyBank/Resources/budget_data.csv'
+csv_path = 'Homework/03-Python/Starter_Code/PyBank/Resources/budget_data.csv'
 
 #open the file
 profit = 0
