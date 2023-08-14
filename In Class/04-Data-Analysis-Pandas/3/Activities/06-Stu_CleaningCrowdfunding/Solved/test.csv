@@ -1,0 +1,8 @@
+,outcome,staff_pick,total
+0,canceled,False,41
+1,canceled,True,3
+2,failed,False,260
+3,failed,True,13
+4,live,False,9
+5,successful,False,413
+6,successful,True,23
