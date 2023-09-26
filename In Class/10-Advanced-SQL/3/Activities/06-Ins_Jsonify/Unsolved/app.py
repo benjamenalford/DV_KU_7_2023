@@ -27,7 +27,11 @@ def api():
 @app.route("/api/v1.0/super-hero/<superhero_name>")
 def api2(superhero_name):
     print(superhero_name)
-    return (jsonify(justice_league_members))
+    for hero in justice_league_members:
+        if (hero['superhero'].lower() == superhero_name.lower()):
+            return hero
+
+    return jsonify("no results")
 
 
 app.run(debug=True)
