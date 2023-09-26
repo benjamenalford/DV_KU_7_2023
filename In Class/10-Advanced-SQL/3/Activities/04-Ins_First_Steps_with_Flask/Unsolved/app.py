@@ -10,7 +10,10 @@ def home():
 
 @app.route('/about')
 def about():
-    return "stuff about me"
+    name = "Ben"
+    location = "kansas"
+    print(f'My name is {name} and I am in {location}\n\nI am a new line')
+    return f'My name is {name} and I am in {location}<br><br>I am a new line'
 
 
 if __name__ == "__main__":
