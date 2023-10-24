@@ -7,16 +7,8 @@ let romanNames = []
 let greekSearchResults = []
 let romanSearchResults = []
 
-// YOUR CODE HERE
-// For loop to populate arrays
-for (let i = 0; i < searchResults.length; i++) {
-    let god = searchResults[i];
-    greekNames.push(god.greekName)
-    romanNames.push(god.romanName)
-    names.push(god.pair)
-    greekSearchResults.push(god.greekSearchResults)
-    romanSearchResults.push(god.romanSearchResults)
-}
+//call function to build arrays
+buildArrays();
 
 // Trace1 for the Greek Data
 let greekTrace = {
@@ -45,3 +37,20 @@ let traceData = [greekTrace, romanTrace]
 
 // Render the plot to the div tag with id "plot"
 Plotly.newPlot("plot", traceData, layout)
+
+function buildArrays() {
+
+    // For loop to populate arrays
+    for (let i = 0; i < searchResults.length; i++) {
+        let god = getGod(i, searchResults);
+        greekNames.push(god.greekName)
+        romanNames.push(god.romanName)
+        names.push(god.pair)
+        greekSearchResults.push(god.greekSearchResults)
+        romanSearchResults.push(god.romanSearchResults)
+    }
+    return
+}
+function getGod(index, arrayOfSomething) {
+    return arrayOfSomething[index]
+}
