@@ -1,18 +1,12 @@
-// An array of each country's numbers
-let australia = Object.values(data.australia);
-let brazil = Object.values(data.brazil);
-let uk = Object.values(data.uk);
-let mexico = Object.values(data.mexico);
-let singapore = Object.values(data.singapore);
-let southAfrica = Object.values(data.southAfrica);
+//Object.keys(data)
+let dataDropDown = d3.select("#dataSet")
+Object.keys(data).forEach(country => {
+    dataDropDown.append('option').text(country).property('value', country)
+})
 
-// Create an array of category labels
-let labels = Object.keys(data.australia);
-
-// @ADD YOUR CODE HERE
 let trace = {
-    values: australia,
-    labels: labels,
+    values: Object.values(data.australia),
+    labels: Object.keys(data.australia),
     type: "pie"
 }
 let layout = {
@@ -25,9 +19,6 @@ d3.select('#dataSet').on("change", () => {
     let selected = d3.select('#dataSet');
     let selectedCountry = selected.property("value")
     console.log(selectedCountry)
-    let data = []
-    if (selectedCountry == 'australia') data = australia
-    else if (selectedCountry == 'brazil') data = brazil
-
-    Plotly.restyle("pie", "values", [data])
+    d3.select('#selectedCountry').text(selectedCountry)
+    Plotly.restyle("pie", "values", [Object.values(data[selectedCountry])])
 })

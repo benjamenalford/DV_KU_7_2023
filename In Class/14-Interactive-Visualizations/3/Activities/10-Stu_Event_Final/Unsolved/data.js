@@ -39,5 +39,11 @@ let data = {
         "Education": 21368,
         "Final Consumption": 72704,
         "Research and Development": 2909
+    },
+    hoobastank: {
+        "Domestic Health": 10000,
+        "Education": 12,
+        "Final Consumption": 100000,
+        "Research and Development": 100
     }
 };
