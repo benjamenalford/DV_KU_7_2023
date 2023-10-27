@@ -43,19 +43,31 @@ cities.forEach(city => {
   // L.marker(city.location).addTo(myMap)
   //   .bindPopup(`<h3>${city.name}</h3><p>Population: ${city.population}</p>`)
   L.circle(city.location, {
-    radius: city.population / 100,
-    color: "green",
-    fillColor: "pink",
+    radius: sizeByPopulation(city.population),
+    color: "black",
+    fillColor: colorByPopulation(city.population),
     fillOpacity: .75
   }).addTo(myMap)
 })
 
-L.polygon([cities[1].location, cities[2].location, cities[4].location]).addTo(myMap)
+function colorByPopulation(population) {
+  if (population > 8000000) return "red"
+  else if (population > 3000000) return "pink"
+  else if (population > 2000000) return "orange"
+  else return "green"
+}
+function sizeByPopulation(population) {
+  if (population < 1000000)
+    return 1000000 / 50
+  else
+    return population / 80
+}
+// L.polygon([cities[1].location, cities[2].location, cities[4].location]).addTo(myMap)
 
-var line = [cities[3].location, cities[4].location, cities[0].location]
+// var line = [cities[3].location, cities[4].location, cities[0].location]
 
-L.polyline(line, {
-  color: "red"
-}).addTo(myMap)
+// L.polyline(line, {
+//   color: "red"
+// }).addTo(myMap)
 
-L.rectangle([cities[0].location, cities[2].location]).addTo(myMap)
+// L.rectangle([cities[0].location, cities[2].location]).addTo(myMap)
