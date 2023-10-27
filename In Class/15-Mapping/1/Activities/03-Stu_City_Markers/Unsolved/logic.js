@@ -40,6 +40,22 @@ let cities = [{
 ];
 
 cities.forEach(city => {
-  L.marker(city.location).addTo(myMap)
-    .bindPopup(`<h3>${city.name}</h3><p>Population: ${city.population}</p>`)
+  // L.marker(city.location).addTo(myMap)
+  //   .bindPopup(`<h3>${city.name}</h3><p>Population: ${city.population}</p>`)
+  L.circle(city.location, {
+    radius: city.population / 100,
+    color: "green",
+    fillColor: "pink",
+    fillOpacity: .75
+  }).addTo(myMap)
 })
+
+L.polygon([cities[1].location, cities[2].location, cities[4].location]).addTo(myMap)
+
+var line = [cities[3].location, cities[4].location, cities[0].location]
+
+L.polyline(line, {
+  color: "red"
+}).addTo(myMap)
+
+L.rectangle([cities[0].location, cities[2].location]).addTo(myMap)
