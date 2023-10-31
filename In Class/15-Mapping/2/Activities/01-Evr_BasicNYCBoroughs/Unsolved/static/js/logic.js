@@ -31,9 +31,18 @@ d3.json(link).then(function (data) {
             layer.bindPopup(`<h3>${borough}</h3><p>${hood}</p>`)
 
             //
-            layer.on("click", function (event) {
-                myMap.fitBounds(event.target.getBounds())
+            layer.on({
+                click: event => myMap.fitBounds(event.target.getBounds()),
+                mouseover: event => {
+                    let currentLayer = event.target;
+                    currentLayer.setStyle({ fillOpacity: .9 })
+                },
+                mouseout: event => {
+                    let currentLayer = event.target;
+                    currentLayer.setStyle({ fillOpacity: .5 })
+                }
             })
+
         }
     }).addTo(myMap);
 });
