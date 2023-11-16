@@ -26,7 +26,7 @@ const pi = 3.14159265358979;
 
 console.log(`The value of pi is approximately ${pi}, and always will be!`);
 
-pi = 3; // this will give an Uncaught TypeError: Assignment to constant variable.
+//pi = 3; // this will give an Uncaught TypeError: Assignment to constant variable.
 
 // JavaScript Objects work a lot like Python dictionaries
 let homer = {

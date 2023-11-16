@@ -19,4 +19,4 @@ console.log(myArray); // output: ['alpha', 'beta', 'gamma', 'omega']
 
 // to access a range of values from the array, use the slice() method.
 // slice(start, end) returns a new array of the objects at indexing beginning at `start` and up to (but not including) `end`.
-console.log(myArray.slice(1,3)); // output: ['beta', 'gamma']
+console.log(myArray.slice(1, 3)); // output: ['beta', 'gamma']

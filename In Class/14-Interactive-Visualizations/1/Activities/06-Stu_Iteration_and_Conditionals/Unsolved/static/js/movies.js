@@ -16,17 +16,42 @@ movies2000s = [];
 movies2010s = [];
 
 // For loop to go through all movies
-
+for (let movieIndex = 0; movieIndex < movies.length; movieIndex++) {
   // Variable to hold current movie in loop
-
-  // Increment sum variable by amount of rating
+  let currentMovie = movies[movieIndex];
+  console.log(movieIndex, currentMovie)
+  // Increment sum variable by amount of profit
+  sum += currentMovie.profit;
 
 
   // Conditional statement to determine array assignment
+  if (currentMovie.year < 1940) {
+    movies1930s.push(currentMovie)
+  } else if (currentMovie.year < 1950) {
+    movies1940s.push(currentMovie)
+  } else if (currentMovie.year < 1960) {
+    movies1950s.push(currentMovie)
+  } else if (currentMovie.year < 1970) {
+    movies1960s.push(currentMovie)
+  } else if (currentMovie.year < 1980) {
+    movies1970s.push(currentMovie)
+  } else if (currentMovie.year < 1990) {
+    movies1980s.push(currentMovie)
+  } else if (currentMovie.year < 2000) {
+    movies1990s.push(currentMovie)
+  } else if (currentMovie.year < 2010) {
+    movies2000s.push(currentMovie)
+  } else if (currentMovie.year < 2020) {
+    movies2010s.push(currentMovie)
+  } else {
+    console.log("panic ", movie)
+  }
+
+}
 
 
-// Find the average rating
-let avg = 
+// Find the average profit
+let avg = sum / movies.length
 
 // Print results
 console.log("---------");

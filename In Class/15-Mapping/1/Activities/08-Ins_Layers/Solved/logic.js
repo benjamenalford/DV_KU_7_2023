@@ -28,28 +28,33 @@ for (var i = 0; i < cities.length; i++) {
   );
 }
 
+let ciricleCity = cities.map(city => {
+  return L.circle(city.location, { radius: 50000 }).bindPopup("<h1>" + city.name + "</h1>")
+})
+
 // Add all the cityMarkers to a new layer group.
 // Now, we can handle them as one group instead of referencing each one individually.
 var cityLayer = L.layerGroup(cityMarkers);
-
+var cirLayer = L.layerGroup(ciricleCity);
 // Define variables for our tile layers.
 var street = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 })
 
 var topo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-	attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+  attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
 });
 
 // Only one base layer can be shown at a time.
 var baseMaps = {
-  Street: street,
-  Topography: topo
+  Hoobastank: street,
+  FooRizz: topo
 };
 
 // Overlays that can be toggled on or off
 var overlayMaps = {
-  Cities: cityLayer
+  Cities: cityLayer,
+  circles: cirLayer
 };
 
 // Create a map object, and set the default layers.
